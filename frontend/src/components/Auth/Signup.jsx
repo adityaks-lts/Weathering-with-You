@@ -9,7 +9,8 @@ const Signup = () => {
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
 
-    const handleSignup = async () => {
+    const handleSignup = async (e) => {
+        e.preventDefault();
         try {
             const response = await axios.post('https://weathering-with-you-zfyi.onrender.com/users', { email, password, favorites:[] });
             navigate('/login'); 

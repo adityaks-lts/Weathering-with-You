@@ -13,7 +13,8 @@ const Login = () => {
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
 
-    const handleLogin = async () => {
+    const handleLogin = async (e) => {
+        e.preventDefault()
         try {
             const response = await axios.get('https://weathering-with-you-zfyi.onrender.com/users');
             const users = response.data;
