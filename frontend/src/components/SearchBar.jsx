@@ -16,7 +16,7 @@ const SearchBar = ({ fetchWeatherData }) => {
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
             />
-            <Button onClick={handleSearch}>Search</Button>
+            <Button colorScheme='blue' onClick={handleSearch}>Search</Button>
         </Box>
     );
 };
