@@ -11,7 +11,7 @@ const Signup = () => {
 
     const handleSignup = async () => {
         try {
-            const response = await axios.post('http://localhost:3000/users', { email, password, favorites:[] });
+            const response = await axios.post('https://weathering-with-you-zfyi.onrender.com/users', { email, password, favorites:[] });
             navigate('/login'); 
         } catch (error) {
             console.error("Signup failed", error);

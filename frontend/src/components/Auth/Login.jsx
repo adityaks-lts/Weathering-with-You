@@ -15,7 +15,7 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/users');
+            const response = await axios.get('https://weathering-with-you-zfyi.onrender.com/users');
             const users = response.data;
 
             const user = users.find(u => u.email === email && u.password === password);

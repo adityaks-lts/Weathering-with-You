@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/user';
+const API_URL = 'https://weathering-with-you-zfyi.onrender.com/user';
 
 export const getFavorites = async (userId) => {
     const response = await axios.get(`${API_URL}/${userId}/favorites`);
