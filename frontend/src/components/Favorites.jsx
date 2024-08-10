@@ -3,8 +3,8 @@ import { Box, Button, Text } from '@chakra-ui/react';
 import { AuthContext } from '../context/AuthContext';
 import { getFavorites, addFavorite, removeFavorite } from '../api/userApi';
 
-const Favorites = ({ fetchWeatherData }) => {
-    const { user } = useContext(AuthContext);
+const Favorites = ({ fetchWeatherData , weatherData}) => {
+    const user  = JSON.parse(localStorage.getItem("user"));
     const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
@@ -19,6 +19,7 @@ const Favorites = ({ fetchWeatherData }) => {
                 setFavorites([...favorites, city]);
             });
         }
+        console.log(user)
     };
 
     const handleRemoveFavorite = (city) => {
@@ -33,12 +34,12 @@ const Favorites = ({ fetchWeatherData }) => {
         <Box>
             <Text>Your Favorites</Text>
             {favorites.map((city, index) => (
-                <Box key={index}>
+                <Box key={index} style={{border:"1px solid", padding:"20px", borderRadius:"10px"}}>
                     <Text onClick={() => fetchWeatherData(city)}>{city}</Text>
                     <Button onClick={() => handleRemoveFavorite(city)}>Remove</Button>
                 </Box>
             ))}
-            <Button onClick={() => handleAddFavorite('New City')}>Add New City</Button>
+            <Button onClick={() => handleAddFavorite(weatherData.name)}>Add New City</Button>
         </Box>
     );
 };
